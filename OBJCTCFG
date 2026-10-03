@@ -1,0 +1,15 @@
+Character
+SkinName = ModernSonic
+DisplayName = Modern#Sonic
+TagTextColor = SKINCOLOR_YELLOW
+TagOutlineColor = SKINCOLOR_COBALT
+OppositeColor = SKINCOLOR_WAVE
+PlayerText = ^4Modern Sonic^0 is widely accessible but extremely powerful, bringing a high skill ceiling.
+
+^4Jump:^0 HomingAttack/ DoubleJump/Walljump
+^1Spin:^0 Slide/Stomp
+^8Custom 1:^0 Boost
+^2Custom 2:^0 Lightdash/ Transform
+^7Custom 3:^0 Air Tricks
+
+^4Tip:^0 Boosting requires energy! Refill with rings, enemies, air tricks or checkpoints. ^7Reaching max energy will temporarily grant unlimited energy!^0

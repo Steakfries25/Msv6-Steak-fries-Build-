@@ -1,0 +1,81 @@
+Modern Sonic To-Do
+[ ] = Not Done
+[X] = Done
+BUGFIXES
+-----------
+[X] fix glove/shoe overlays appearing over top of super sonic's jump aura
+[X] get glove/shoe overlays to appear under the stomp aura (dispoffset shit)
+[X] fix modern keeping crawl speed if he jumps while crawling
+[ ] make it so sweepkick can't fling monitors
+[ ] make it so modern's results screen music resets properly if you retry after hitting the goalpost
+[ ] find why idling on rollout rocks as super sonic or landing on it while charging a dropdash breaks his animations
+[ ] make it so setting your supercolor to default by doing "supercolor default" in console doesn't break modern's super transformation (same bug as what the advance supercolor was doing)
+[ ] make it so you either can't light dash while stomping or light dashing cancels your stomp
+[ ] make it so if you slide into a vertical spring with the button held down the camera properly fixes itself without the button having to be released
+[ ] apply the trail blending fix (it used to not always properly blend upon spawn) to super sonic's trail color (may be yellow regardless of supercolor)
+[X] cap the amount of boost energy that can spawn from modern doing a trick finisher
+[ ] make it so modern can't charge a spindash while sweepkicking without moving
+[ ] fix the one random boost bug (line 2114)
+[ ] make it so sp color does not override super sonic's color in nights mode
+[ ] if possible, disable results screen in record attack
+[ ] if possible, disable results screen in nights mode
+[ ] if possible, improve wall breaker detection
+[ ] if possible, make it so the time displayed on the results screen matches the stopped time of the hud (main example for this is bosses)
+[ ] figure out what the fuck to do to make modern's trail not a eat a dick for some of the walls in cez2
+[ ] properly recolor sonic/super sonic's effects if you have a fireflower
+[ ] find a way to make the stomp not weirdly slower if you start it while moving upwards
+[ ] implement a height check for super sonic's transformation fling
+[ ] if possible fix dispoffset shenanigans related to the cloth/shoe overlay fading over top of a shield when turning super (may be related to rush mode)
+[ ] fix the srb2 boost aura being brighter when airboosting than while boosting on the ground (or maybe it's darker than intended???)
+[ ] make sure the stomp dropdash sound plays properly if you do the inputs from super flight and have easy dropdash on
+[ ] eliminate cases where using the easy drop dash doesn't update states properly
+[ ] make it so you can't quickstep while sweepkicking, rolling, or in the menu
+[ ] make it so quickstepping while boosting actually uses the quickstep animation
+[ ] fix the trick hud not truly resetting all the way if you retry in singleplayer while the text is still up
+[ ] make it so if modern opens the menu while on a rollout rock he can't boost while in the menu
+[ ] figure out how to handle cases where modern is trying to stomp dropdash but goes up (bouncy fofs, badnik bouncing as super sonic)
+[ ] make it so if modern somehow dies and touches a spring at the same time he dies correctly
+[ ] make it so modern can't lock on to shit while dead
+[ ] make jump overlays appear under shields if possible
+[ ] make it so if you retry in singleplayer while doing a jump trick finisher you don't pop up upon spawn
+[ ] make it so the cloth/shoe overlays properly follow sonic when his idle flips during the results screen animation
+[ ] fix speedlines not showing up if you boost with speed shoes
+[X] fix the rush section of the menu erroring if you have it set to use your opposite color
+[ ] get boost auras to fully fucking behave on rollout rocks (legacy, srb2, colors)
+[X] fix the HUD causing lag in 2.2.15
+[ ] fix results screen overlaping itself in green resolutions
+ 
+CHANGES/TWEAKS/MISC
+---------------------------
+[ ] write a new input system, allowing players to choose which buttons do what
+	[ ] make a sub menu in the Gameplay menu that allows for the changing of inputs
+		- submenu options would look like this...
+			Jump Ability                    Jump
+			Homing Attack                   Jump
+			Crouch + Stomp                  Spin
+			Boost                       Custom 1
+			Light Dash                  Custom 2
+			Trick                       Custom 3
+			Drift                           Fire
+			Roll                     Fire Normal
+			Quick Step Left          Weapon Prev
+			Quick Step Right         Weapon Next
+			Taunt                      Toss Flag
+
+[ ] update sound captions for all the new sound effects :')
+[ ] implement the fifth trick voice clips for rush styled tricking (sent those to spork)
+[ ] possibly move all the menu artwork to the left a bit, they're all fairly cut off in green resolutions right now (1366x768 seems to be the most "visible" resolution for the menu artwork, for comparison's sake)
+[ ] fix cloth color overlay recoloring sonic's shoe buckles where applicable (white pixels on some angles get recolored)
+[ ] fix the shoe/eye overlay for super sonic crawling
+[ ] make it so super sonic's outline fades in just before sonic turns super (this also means outline the transformation frames spork ;v;)
+[ ] outline super sonic's spindash and second falling frames (and whatever else isn't outlined)
+[ ] let modern start a boss perfect from boosting into a boss (if he's airborne when it hits) so he can actually perfect the cez3 boss
+[ ] make it so if modern is hurt while charging a dropdash he uncurls
+[ ] find a way to make the signpost actually match your sp color in singleplayer
+[ ] find a way for super sonic to be able to boost through enemies with 2 hp without them living or bouncing him away
+[ ] maybe implement different options for level clear music?
+[ ] implement a system for trick poses that makes it so modern literally can't get the same pose twice in a row (store the pose used somehow maybe?)
+[ ] should the camera go up modern's ass if he stomps after hitting a spring?
+[ ] possibly add a 1 frame lockout on abilities upon spawn so the game doesn't randomly buffer modern using any moves
+[ ] let super sonic fling eggman statues if he boosts into them (they would respawn)
+[ ] let modern visually surf on water w/ the rail grind animation if he is water running while holding custom 3
