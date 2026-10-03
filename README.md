@@ -1,4 +1,4 @@
-# 🦔 Modern Sonic V6 (Steak-Fries-Build)
+# 🦔 Modern Sonic V6
 ### A high-speed Modern Sonic experience for Sonic Robo Blast 2!
 
 ![SRB2](https://img.shields.io/badge/SRB2-Mod-blue)
