@@ -281,7 +281,7 @@ local starcolors = {
 	{146,146,147,148,149,150,151,151,154,154,155,157,158,158,253,254},
 	{146,147,148,149,150,151,151,153,154,155,156,157,158,159,253,254},
 	{146,147,148,149,150,151,152,153,154,155,156,157,158,159,253,254},
-	{146,147,148,149,150,150,151,153,154,155,156,157,158,159,253,254},
+	{146,147,148,149,150,150,151,153,154,155,156truetrue,157,158,159,253,254},
 	{146,147,148,149,150,150,151,151,153,155,156,156,158,169,253,253},
 	{145,146,148,149,150,150,151,151,166,167,156,168,158,169,253,253},
 	{160,161,162,163,164,165,165,166,166,167,167,167,168,169,169,253},
@@ -7096,45 +7096,29 @@ addHook("ThinkFrame", do
 		if (s.state == S_PLAY_SPRING)
 			p.frontflip = true
 			p.powers[pw_strong] = 0
-		end
-		if p.frontflip == true
-			p.frontfliplock = true
-		end
-		if p.frontfliplock == true
-		and (s.state == S_PLAY_FALL)
-		and p.stomping == false
-			s.state = S_PLAY_ROLL
-			p.timer=17
-		end
-		if p.timer == 0
-		and not (player.pflags & PF_THOKKED)
-		and player.frontfliplock == true
-		and s.state == S_PLAY_ROLL
-			s.state = S_PLAY_FALL
-			player.frontflip = false
-			player.frontfliplock = false 
-		end
-		if P_IsObjectOnGround(player.mo)
-		//or player.pflags & PF_THOKKED
-		or player.pflags & PF_THOKKED
-		or player.abilitylock == true and player.boosting == false
-		or player.stomping == true
-		or player.airboost == true
-			player.timer = 0
-			player.frontflip = 0
-			player.frontfliplock = 0
-		end
+				// Pointing/Taunt animation
 		if player.mo.state >= S_PLAY_TAUNT1
 		and player.mo.state <= S_PLAY_TAUNT4
+			// Keep the normal animation system from replacing the pose
 			player.panim = PA_DASH
-			if leveltime % 3 == 0
-				player.mo.state = $
-			end			
+
+			// Keep Sonic from moving/canceling the animation
+			player.powers[pw_nocontrol] = max(player.powers[pw_nocontrol], 2)
+
+			// TAUNT1-3 advance automatically through their states.
+			// TAUNT4 stays there until the taunt timer expires.
+			if player.mo.state == S_PLAY_TAUNT4
+			and player.tauntwait <= 0
+				player.powers[pw_nocontrol] = 0
+				player.mo.state = S_PLAY_STND
+			end
 		end
+
+		// Start pointing animation
 		if (player.cmd.buttons & BT_TOSSFLAG)
-        and not P_PlayerInPain(player)
+		and not P_PlayerInPain(player)
 		and player.cmd.buttons & BT_CUSTOM2
-        and player.playerstate == PST_LIVE
+		and player.playerstate == PST_LIVE
 		and P_IsObjectOnGround(player.mo)
 		and not (player.mo.eflags & MFE_UNDERWATER)
 		and player.tauntwait == 0
@@ -7144,6 +7128,26 @@ addHook("ThinkFrame", do
 		and not (player.pflags & PF_STARTDASH)
 		and player.crouching == false
 		and player.mo.state ~= S_PLAY_MODERNVICTORY
+			player.powers[pw_nocontrol] = 64
+			player.mo.state = S_PLAY_TAUNT1
+			player.tauntwait = 70
+
+			if player.modernmenu.contents[6][1].value == 1 -- Voices
+				if player.modernmenu.contents[6][2].value == 0
+					S_StartSound(player.mo, sfx_taunt1)
+				elseif player.modernmenu.contents[6][2].value == 1
+					S_StartSound(player.mo, sfx_taunt2)
+				elseif player.modernmenu.contents[6][2].value == 2
+					S_StartSound(player.mo, sfx_taunt3)
+				elseif player.modernmenu.contents[6][2].value == 3
+					S_StartSound(player.mo, sfx_taunt4)
+				elseif player.modernmenu.contents[6][2].value == 4
+					S_StartSound(player.mo, sfx_flgood)
+				elseif player.modernmenu.contents[6][2].value == 5
+					S_StartSound(player.mo, sfx_goodj)
+				end
+			end
+		end
 			player.powers[pw_nocontrol] = 64
 			player.mo.state = S_PLAY_TAUNT1
 			player.tauntwait = 70
