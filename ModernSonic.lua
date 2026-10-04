@@ -6804,7 +6804,7 @@ addHook("ThinkFrame", do
 					end
 					p.driftdirection = 1
 					p.candrift = true
-				elseif (p.driftangle > 2 and p.driftangle < 180)
+		if (p.driftangle > 2 and p.driftangle < 180)
 				or p.cmd.sidemove < -2 and (p.cmd.buttons & BT_ATTACK)
 					if p.driftdirection == 1
 						p.driftsens = 0
@@ -7127,9 +7127,6 @@ addHook("ThinkFrame", do
 		if player.mo.state >= S_PLAY_TAUNT1
 		and player.mo.state <= S_PLAY_TAUNT4
 			player.panim = PA_DASH
-			if leveltime % 3 == 0
-				player.mo.state = $
-			end			
 		end
 		if (player.cmd.buttons & BT_TOSSFLAG)
         and not P_PlayerInPain(player)
